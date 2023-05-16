@@ -1,4 +1,4 @@
-package services.Impl;
+package com.example.demo.services.Impl;
 
 import java.util.Optional;
 
@@ -7,9 +7,9 @@ import org.springframework.boot.context.properties.source.InvalidConfigurationPr
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import models.Namirnice;
-import repository.NamirniceRepository;
-import services.NamirniceService;
+import com.example.demo.models.Namirnice;
+import com.example.demo.repository.NamirniceRepository;
+import com.example.demo.services.NamirniceService;
 
 @Service
 @Transactional

@@ -1,10 +1,34 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+ xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+<meta charset="utf-8"/>
+<title>Namirnice</title>
 </head>
 <body>
-<h1>IDE GASSSSSSSS</h1>
+<div align="center">
+ <h1>POPIS NAMIRNICA</h1>
+ <a href="/novi">Kreiraj novu namirnucu</a>
+ <br/><br/>
+ <table border="1" cellpadding="10">
+ <thead>
+ <tr>
+ <th>ID namirnice</th>
+ <th>Naziv</th>
+ </tr>
+ </thead>
+ <tbody>
+ <tr th:each="namirnice : ${listaNamirnica}">
+ <td th:text="${namirnice.id_Namirnice}">Product ID</td>
+ <td th:text="${namirnice.naziv}">Naziv</td>
+ <td>
+ <a th:href="@{'/namirnice/uredi/' + ${namirnice.id_namirnice}}">Uredi</a>
+ &nbsp;&nbsp;
+ <a th:href=“@{'/namirnice/brisi/' + ${namirnice.id_namirnice}}“>Briši</a>
+ </td>
+ </tr>
+ </tbody>
+ </table>
+</div>
 </body>
 </html>
