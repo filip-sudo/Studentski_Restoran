@@ -3,10 +3,10 @@ package com.example.demo.services.Impl;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.context.properties.source.InvalidConfigurationPropertyValueException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.example.demo.exceptions.ResourceNotFoundException;
 import com.example.demo.models.Namirnice;
 import com.example.demo.repository.NamirniceRepository;
 import com.example.demo.services.NamirniceService;
@@ -22,7 +22,7 @@ public class NamirniceServiceImpl implements NamirniceService{
 	
 	
 	
-	
+	@Override
 	public Namirnice createNamirnice(Namirnice Namirnice) {
 		return NamirniceRepository.save(Namirnice);
 	}
@@ -33,8 +33,8 @@ public class NamirniceServiceImpl implements NamirniceService{
 	
 	
 	
-	
-	public Namirnice updateNamirnice(Namirnice dataNamirnice) throws InvalidConfigurationPropertyValueException{
+	@Override
+	public Namirnice updateNamirnice(Namirnice dataNamirnice) throws ResourceNotFoundException{
 		Optional<Namirnice>productDb = this.NamirniceRepository.findById(dataNamirnice.getId_Namirnice());
 		
 		if (productDb.isPresent()) {
@@ -43,8 +43,8 @@ public class NamirniceServiceImpl implements NamirniceService{
 			NamirniceRepository.save(NamirniceUpdate);
 			return NamirniceUpdate;
 			} else {
-			throw new InvalidConfigurationPropertyValueException("Zapis nije pronađen : " +
-			dataNamirnice.getId_Namirnice(), productDb, null);
+			throw new ResourceNotFoundException("Zapis nije pronađen : " +
+			dataNamirnice.getId_Namirnice());
 			}
 
 	}
@@ -55,7 +55,7 @@ public class NamirniceServiceImpl implements NamirniceService{
 	
 	
 	
-	
+	@Override
 	public Iterable<Namirnice> getAllNamirnice() {
 	return this.NamirniceRepository.findAll();
 	}
@@ -65,7 +65,7 @@ public class NamirniceServiceImpl implements NamirniceService{
 	
 	
 	
-	
+	@Override
 	public Namirnice getNamirnice(long NamirniceId) {
 		if (NamirniceId == 0)
 		return new Namirnice();
@@ -80,13 +80,13 @@ public class NamirniceServiceImpl implements NamirniceService{
 	
 	
 	
-	
+	@Override
 	public void deleteNamirnice(long NamirniceId) {
 		Optional<Namirnice> productDb = this.NamirniceRepository.findById(NamirniceId);
 		if (productDb.isPresent()) {
 		this.NamirniceRepository.delete(productDb.get());
 		} else {
-		throw new InvalidConfigurationPropertyValueException("Zapis nije pronađen.", productDb, null);
+		throw new ResourceNotFoundException("Zapis nije pronađen.");
 		}
 		}
 

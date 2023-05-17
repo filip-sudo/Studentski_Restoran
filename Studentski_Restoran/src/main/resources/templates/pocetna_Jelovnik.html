@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+ xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"/>
+<title>Meni</title>
+</head>
+<body>
+<div align="center">
+ <h1>POPIS Jelovnika</h1>
+ <a href="/jelovnik/novi">Kreiraj novi jelovnik</a>
+ <br/><br/>
+ <table border="1" cellpadding="10">
+ <thead>
+ <tr>
+ <th>ID</th>
+ <th>Restoran</th>
+ <th>Adresa</th>
+ <th>Datum</th>
+ </tr>
+ </thead>
+ <tbody>
+ <tr th:each="jelovnik : ${listaJelovnik}">
+ <td th:text="${jelovnik.id_jelovnik}">ID</td>
+ <td th:text="${jelovnik.restoran}">Restoran</td>
+ <td th:text="${jelovnik.adresa}">Adresa</td>
+ <td th:text="${jelovnik.datum}">Datum</td>
+ <td>
+ <a th:href="@{'/jelovnik/uredi/' + ${jelovnik.id_jelovnik}}">Uredi</a>
+ &nbsp;&nbsp;
+ <a th:href="@{'/jelovnik/brisi/' + ${jelovnik.id_jelovnik}}">Briši</a>
+ </td>
+ </tr>
+ </tbody>
+ </table>
+ <a href="/"><button>POCETNA</button></a>
+</div>
+</body>
+</html>

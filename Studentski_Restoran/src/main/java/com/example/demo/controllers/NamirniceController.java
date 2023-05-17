@@ -21,16 +21,16 @@ public class NamirniceController {
 	@Autowired
 	 private NamirniceService service;
 	
-	@GetMapping(value="/namirnice")
+	@GetMapping("/namirnice")
 	public String pocetakNamirnice(Model model) {
 		
 		ArrayList<Namirnice> popisNamirnica = (ArrayList)service.getAllNamirnice();
 		model.addAttribute("listaNamirnica", popisNamirnica);
 		
-		return "Namirnicehtml";
+		return "pocetna_Namirnice";
 	}
 	
-	@RequestMapping(value = "/novi", method = RequestMethod.GET)
+	@RequestMapping(value = "/namirnice/novi", method = RequestMethod.GET)
 	public String getNoviNamirnice(Model model) {
 		
 		Namirnice Namirnice = new Namirnice();
@@ -39,28 +39,28 @@ public class NamirniceController {
 		return "novi_Namirnice";
 	}
 	
-	@RequestMapping(value = "/novi", method = RequestMethod.POST)
+	@RequestMapping(value = "/namirnice/novi", method = RequestMethod.POST)
 		public String postNoviNamirnice(@ModelAttribute("Namirnice") Namirnice Namirnice) {
 			service.createNamirnice(Namirnice);
 			return "redirect:/namirnice";
 	}
 	
-	@RequestMapping("/uredi/{id}")
+	@RequestMapping("/namirnice/uredi/{id}")
 	public ModelAndView urediNamirnice(@PathVariable(name = "id") int id) {
-		ModelAndView mav = new ModelAndView("uredi_namirnice");
+		ModelAndView mav = new ModelAndView("uredi_Namirnice");
 		Namirnice namirnice = service.getNamirnice(id);
 		mav.addObject("namirnice", namirnice);
 		return mav;
 	}
 
 	
-	@RequestMapping(value = "/uredi", method = RequestMethod.POST)
+	@RequestMapping(value = "/namirnice/uredi", method = RequestMethod.POST)
 	public String snimiNamirnice(@ModelAttribute("Namirnice") Namirnice namirnice) {
 		service.updateNamirnice(namirnice);
 		return "redirect:/namirnice";
 	}
 	
-	@RequestMapping("/brisi/{id}")
+	@RequestMapping("/namirnice/brisi/{id}")
 	public String brisanjeNamirnice(@PathVariable(name = "id") int id) {
 	service.deleteNamirnice(id);
 	return "redirect:/namirnice";
