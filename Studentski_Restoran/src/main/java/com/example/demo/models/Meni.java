@@ -24,10 +24,7 @@ public class Meni {
 	
 	@Column
 	private Boolean vege;
-	/*
-	@Column
-	List<Namirnice> namirnice;
-	*/
+	
 	@Column
 	private double kalorije;
 	
@@ -85,15 +82,7 @@ public class Meni {
 	public void setVege(Boolean vege) {
 		this.vege = vege;
 	}
-	/*
-	public List<Namirnice> getNamirnice(){
-		return namirnice;
-	}
-	
-	public void setNamirnice(List<Namirnice> namirnice){
-		this.namirnice = namirnice;
-	}
-*/
+
 	public double getKalorije() {
 		return kalorije;
 	}

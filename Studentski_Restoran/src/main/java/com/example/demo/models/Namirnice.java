@@ -12,7 +12,11 @@ public class Namirnice {
 	
 	@Column
 	private String naziv;
+	
 
+	
+	
+	
 	public long getId_Namirnice() {
 		return id_Namirnice;
 	}
