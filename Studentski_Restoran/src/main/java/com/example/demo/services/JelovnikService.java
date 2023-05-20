@@ -1,5 +1,7 @@
 package com.example.demo.services;
 
+import java.util.List;
+
 import com.example.demo.models.Jelovnik;
 
 public interface JelovnikService {
@@ -13,6 +15,8 @@ public interface JelovnikService {
 	Jelovnik getJelovnik(long id_jelovnik);
 	
 	void deleteJelovnik(long id);
+	
+	List<Jelovnik> getByKeyword(String keyword);
 	
 
 }

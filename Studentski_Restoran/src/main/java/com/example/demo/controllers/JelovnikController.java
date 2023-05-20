@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.demo.models.Jelovnik;
+import com.example.demo.models.Meni;
 import com.example.demo.services.JelovnikService;
 
 @Controller
@@ -22,10 +23,15 @@ public class JelovnikController {
 	 private JelovnikService service;
 	
 	@GetMapping("/jelovnik")
-	public String pocetakJelovnik(Model model) {
+	public String pocetakJelovnik(Model model, String keyword) {
 		
+		if(keyword == null) {
 		ArrayList<Jelovnik> popisJelovnik = (ArrayList)service.getAllJelovnik();
 		model.addAttribute("listaJelovnik", popisJelovnik);
+		}else {
+			ArrayList<Jelovnik> popisJelovnik = (ArrayList)service.getByKeyword(keyword);
+			model.addAttribute("listaJelovnik", popisJelovnik);
+		}
 		
 		return "pocetna_Jelovnik";
 	}

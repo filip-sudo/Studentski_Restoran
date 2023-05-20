@@ -22,10 +22,15 @@ public class MeniController {
 	 private MeniService service;
 	
 	@GetMapping("/meni")
-	public String pocetakMeni(Model model) {
+	public String pocetakMeni(Model model, String keyword) {
 		
+		if(keyword==null) {
 		ArrayList<Meni> popisMeni = (ArrayList)service.getAllMeni();
 		model.addAttribute("listaMeni", popisMeni);
+		}else {
+			ArrayList<Meni> popisMeni = (ArrayList)service.getByKeyword(keyword);
+			model.addAttribute("listaMeni", popisMeni);
+		}
 		
 		return "pocetna_Meni";
 	}

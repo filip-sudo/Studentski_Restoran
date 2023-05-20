@@ -13,14 +13,14 @@ public class Jelovnik {
 	private long id_jelovnik;
 	
 	@Column
+	private String naziv;
+
+	@Column
 	private String restoran;
 	
 	@Column
 	private String adresa;
-	/*
-	@Column
-	ArrayList<Meni> meni;
-	*/
+	
 	@Column
 	private LocalDateTime datum;
 
@@ -30,6 +30,14 @@ public class Jelovnik {
 
 	public void setId_jelovnik(long id_jelovnik) {
 		this.id_jelovnik = id_jelovnik;
+	}
+	
+	public String getNaziv() {
+		return naziv;
+	}
+
+	public void setNaziv(String naziv) {
+		this.naziv = naziv;
 	}
 
 	public String getRestoran() {
@@ -47,15 +55,7 @@ public class Jelovnik {
 	public void setAdresa(String adresa) {
 		this.adresa = adresa;
 	}
-/*(
-	public ArrayList<Meni> getMeni() {
-		return meni;
-	}
 
-	public void setMeni(ArrayList<Meni> meni) {
-		this.meni = meni;
-	}
-*/
 	public LocalDateTime getDatum() {
 		return datum;
 	}

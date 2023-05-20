@@ -10,10 +10,16 @@
  <h1>POPIS Jelovnika</h1>
  <a href="/jelovnik/novi">Kreiraj novi jelovnik</a>
  <br/><br/>
+ <form th:action="@{/jelovnik}" method="get">
+  <input type="text" name="keyword" th:value="${keyword}"  placeholder="Find by anything" size="50" >
+  <button type="submit" class="btn btn-info" >Search</button>
+  <button type="submit" class="btn btn-info" >Reset</button>
+  </form>
  <table border="1" cellpadding="10">
  <thead>
  <tr>
  <th>ID</th>
+ <th>Naziv</th>
  <th>Restoran</th>
  <th>Adresa</th>
  <th>Datum</th>
@@ -22,6 +28,7 @@
  <tbody>
  <tr th:each="jelovnik : ${listaJelovnik}">
  <td th:text="${jelovnik.id_jelovnik}">ID</td>
+ <td th:text="${jelovnik.naziv}">ID</td>
  <td th:text="${jelovnik.restoran}">Restoran</td>
  <td th:text="${jelovnik.adresa}">Adresa</td>
  <td th:text="${jelovnik.datum}">Datum</td>

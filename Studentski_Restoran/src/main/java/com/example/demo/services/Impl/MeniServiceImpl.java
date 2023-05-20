@@ -1,5 +1,6 @@
 package com.example.demo.services.Impl;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -98,6 +99,11 @@ public class MeniServiceImpl implements MeniService{
 		throw new ResourceNotFoundException("Zapis nije pronađen.");
 		}
 		}
+	
+	@Override
+	public List<Meni> getByKeyword(String keyword){
+		return MeniRepository.findByKeyword(keyword);
+	}
 
 
 }

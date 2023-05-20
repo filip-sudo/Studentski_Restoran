@@ -10,6 +10,11 @@
  <h1>POPIS MENIJA</h1>
  <a href="/meni/novi">Kreiraj novi meni</a>
  <br/><br/>
+ <form th:action="@{/meni}" method="get">
+  <input type="text" name="keyword" th:value="${keyword}"  placeholder="Find by anything" size="50" >
+  <button type="submit" class="btn btn-info" >Search</button>
+  <button type="submit" class="btn btn-info" >Reset</button>
+  </form>
  <table border="1" cellpadding="10">
  <thead>
  <tr>

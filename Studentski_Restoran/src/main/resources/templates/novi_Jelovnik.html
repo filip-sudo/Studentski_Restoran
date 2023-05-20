@@ -12,6 +12,10 @@
 <form action=“#“ th:action="@{/jelovnik/novi}" th:object="${Jelovnik}" method="post">
 <table border="0" cellpadding="10">
 <tr>
+<td>Naziv:</td>
+<td><input type="text" th:field="*{naziv}"/></td>
+</tr>
+<tr>
 <td>Restoran:</td>
 <td><input type="text" th:field="*{restoran}"/></td>
 </tr>
@@ -30,7 +34,7 @@
 </tr>
 </table>
 </form>
-<a href="/meni"><button>NATRAG</button></a>
+<a href="/jelovnik"><button>NATRAG</button></a>
 </div>
 </body>
 </html>

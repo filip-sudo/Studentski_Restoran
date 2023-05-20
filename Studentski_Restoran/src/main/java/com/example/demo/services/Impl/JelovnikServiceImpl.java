@@ -1,5 +1,6 @@
 package com.example.demo.services.Impl;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,12 +40,10 @@ public class JelovnikServiceImpl implements JelovnikService{
 		
 		if (productDb.isPresent()) {
 			Jelovnik JelovnikUpdate = productDb.get();
+			JelovnikUpdate.setNaziv(dataJelovnik.getNaziv());
 			JelovnikUpdate.setRestoran(dataJelovnik.getRestoran());
 			JelovnikUpdate.setAdresa(dataJelovnik.getAdresa());
 			JelovnikUpdate.setDatum(dataJelovnik.getDatum());
-			/*
-			JelovnikUpdate.setMeni(dataJelovnik.getMeni());
-			*/
 			JelovnikRepository.save(JelovnikUpdate);
 			return JelovnikUpdate;
 			} else {
@@ -94,6 +93,11 @@ public class JelovnikServiceImpl implements JelovnikService{
 		throw new ResourceNotFoundException("Zapis nije pronađen.");
 		}
 		}
+	
+	@Override
+	public List<Jelovnik> getByKeyword(String keyword){
+		return JelovnikRepository.findByKeyword(keyword);
+	}
 
 
 }
