@@ -1,5 +1,8 @@
 package com.example.demo.services;
 
+import java.util.List;
+
+import com.example.demo.models.Meni;
 import com.example.demo.models.Namirnice;
 
 public interface NamirniceService {
@@ -13,5 +16,7 @@ public interface NamirniceService {
 	Namirnice getNamirnice(long id_Namirnice);
 	
 	void deleteNamirnice(long id);
+	
+	List<Namirnice> getByKeyword(String keyword);
 	
 }

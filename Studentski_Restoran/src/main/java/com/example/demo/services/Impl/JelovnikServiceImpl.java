@@ -19,20 +19,10 @@ public class JelovnikServiceImpl implements JelovnikService{
 	@Autowired
 	private JelovnikRepository JelovnikRepository;
 	
-	
-	
-	
-	
 	@Override
 	public Jelovnik createJelovnik(Jelovnik Jelovnik) {
 		return JelovnikRepository.save(Jelovnik);
 	}
-	
-	
-	
-	
-	
-	
 	
 	@Override
 	public Jelovnik updateJelovnik(Jelovnik dataJelovnik) throws ResourceNotFoundException{
@@ -53,21 +43,10 @@ public class JelovnikServiceImpl implements JelovnikService{
 
 	}
 	
-	
-	
-	
-	
-	
-	
 	@Override
 	public Iterable<Jelovnik> getAllJelovnik() {
 	return this.JelovnikRepository.findAll();
 	}
-	
-	
-	
-	
-	
 	
 	@Override
 	public Jelovnik getJelovnik(long JelovnikId) {
@@ -80,10 +59,7 @@ public class JelovnikServiceImpl implements JelovnikService{
 		return new Jelovnik();
 		}
 		}
-	
-	
-	
-	
+
 	@Override
 	public void deleteJelovnik(long JelovnikId) {
 		Optional<Jelovnik> productDb = this.JelovnikRepository.findById(JelovnikId);
@@ -113,6 +89,5 @@ public class JelovnikServiceImpl implements JelovnikService{
 	public List<Jelovnik> getByKeywordDnevni(String keyword){
 		return JelovnikRepository.findByKeywordDnevni(keyword);
 	}
-
 
 }

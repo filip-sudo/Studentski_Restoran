@@ -1,5 +1,6 @@
 package com.example.demo.services.Impl;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.example.demo.exceptions.ResourceNotFoundException;
+import com.example.demo.models.Meni;
 import com.example.demo.models.Namirnice;
 import com.example.demo.repository.NamirniceRepository;
 import com.example.demo.services.NamirniceService;
@@ -89,6 +91,11 @@ public class NamirniceServiceImpl implements NamirniceService{
 		throw new ResourceNotFoundException("Zapis nije pronađen.");
 		}
 		}
+	
+	@Override
+	public List<Namirnice> getByKeyword(String keyword){
+		return NamirniceRepository.findByKeyword(keyword);
+	}
 
 
 }

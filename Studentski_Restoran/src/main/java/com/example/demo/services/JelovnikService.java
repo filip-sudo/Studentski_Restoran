@@ -24,5 +24,4 @@ public interface JelovnikService {
 	
 	List<Jelovnik> getByKeywordDnevni(String keyword);
 	
-
 }

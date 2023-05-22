@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.demo.models.Jelovnik;
-import com.example.demo.models.Meni;
 import com.example.demo.services.JelovnikService;
 
 @Controller
@@ -86,5 +85,5 @@ public class JelovnikController {
 	service.deleteJelovnik(id);
 	return "redirect:/jelovnik";
 	}
-
+	
 }
