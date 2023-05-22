@@ -98,6 +98,21 @@ public class JelovnikServiceImpl implements JelovnikService{
 	public List<Jelovnik> getByKeyword(String keyword){
 		return JelovnikRepository.findByKeyword(keyword);
 	}
+	
+	@Override
+	public List<Jelovnik> getByKeywordMjesecni(String keyword){
+		return JelovnikRepository.findByKeywordMjesecni(keyword);
+	}
+	
+	@Override
+	public List<Jelovnik> getByKeywordTjedni(String keyword){
+		return JelovnikRepository.findByKeywordTjedni(keyword);
+	}
+	
+	@Override
+	public List<Jelovnik> getByKeywordDnevni(String keyword){
+		return JelovnikRepository.findByKeywordDnevni(keyword);
+	}
 
 
 }

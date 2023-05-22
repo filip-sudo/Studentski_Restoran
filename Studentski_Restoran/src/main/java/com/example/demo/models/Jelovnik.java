@@ -1,6 +1,7 @@
 package com.example.demo.models;
 
 import java.time.LocalDateTime;
+import java.util.Set;
 
 import jakarta.persistence.*;
 
@@ -23,7 +24,18 @@ public class Jelovnik {
 	
 	@Column
 	private LocalDateTime datum;
-
+	
+	@ManyToMany
+	@JoinTable(
+			name = "jelovnik_meni",
+			joinColumns = @JoinColumn(name = "id_jelovnik"),
+			inverseJoinColumns = @JoinColumn(name = "id_meni")
+			)
+	Set<Meni> spojiMeni; 
+	
+	
+	
+	
 	public long getId_jelovnik() {
 		return id_jelovnik;
 	}

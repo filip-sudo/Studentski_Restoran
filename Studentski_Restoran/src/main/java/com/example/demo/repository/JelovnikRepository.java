@@ -11,8 +11,24 @@ import com.example.demo.models.Jelovnik;
 public interface JelovnikRepository extends JpaRepository<Jelovnik, Long> {
 	
 	//Custom query
+	@Query(value = "select * from jelovnik where naziv like %:keyword% or id_jelovnik like %:keyword% or restoran like %:keyword% "
+	 		+ "or adresa like %:keyword%", nativeQuery = true)
+	 List<Jelovnik> findByKeyword(@Param("keyword") String keyword);
+
+	
 		 @Query(value = "select * from jelovnik where naziv like %:keyword% or id_jelovnik like %:keyword% or restoran like %:keyword% "
-		 		+ "or adresa like %:keyword%", nativeQuery = true)
-		 List<Jelovnik> findByKeyword(@Param("keyword") String keyword);
+		 		+ "or adresa like %:keyword% "
+		 		+ "and DATEDIFF(day,datum,GETDATE()) between 0 and 30", nativeQuery = true)
+		 List<Jelovnik> findByKeywordMjesecni(@Param("keyword") String keyword);
+		 
+		 @Query(value = "select * from jelovnik where naziv like %:keyword% or id_jelovnik like %:keyword% or restoran like %:keyword% "
+			 		+ "or adresa like %:keyword% "
+			 		+ "and DATEDIFF(day,datum,GETDATE()) between 0 and 7", nativeQuery = true)
+			 List<Jelovnik> findByKeywordTjedni(@Param("keyword") String keyword);
+		 
+		 @Query(value = "select * from jelovnik where naziv like %:keyword% or id_jelovnik like %:keyword% or restoran like %:keyword% "
+			 		+ "or adresa like %:keyword% "
+			 		+ "and DATEDIFF(day,datum,GETDATE()) between 0 and 1", nativeQuery = true)
+			 List<Jelovnik> findByKeywordDnevni(@Param("keyword") String keyword);
 
 }

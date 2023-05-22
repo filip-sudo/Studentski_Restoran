@@ -1,5 +1,7 @@
 package com.example.demo.models;
 
+import java.util.Set;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -12,6 +14,9 @@ public class Namirnice {
 	
 	@Column
 	private String naziv;
+	
+	@ManyToMany(mappedBy = "spojiNamirnice")
+	Set<Meni> spojMeni;
 	
 
 	

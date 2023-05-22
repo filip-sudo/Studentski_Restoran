@@ -10,11 +10,35 @@
  <h1>POPIS Jelovnika</h1>
  <a href="/jelovnik/novi">Kreiraj novi jelovnik</a>
  <br/><br/>
+ 
+ 
  <form th:action="@{/jelovnik}" method="get">
-  <input type="text" name="keyword" th:value="${keyword}"  placeholder="Find by anything" size="50" >
+ <table border="0" cellpadding="10">
+ <tr>
+<td>Mjesecni </td>
+<td>
+ <input type="radio" th:value="${mjesecni}" name="keyword" />
+</td>
+ </tr>
+ <tr>
+<td>Tjedni </td>
+<td>
+ <input type="radio" th:value="${tjedni}" name="keyword" />
+</td>
+ </tr>
+ <tr>
+<td>Dnevni </td>
+<td>
+ <input type="radio" th:value="${dnevni}" name="keyword" />
+</td> 
+ </tr>
+</table>
+  <input type="text" name="keyword" th:value="${keyword}"  placeholder="Unesi pojam..." size="50" >
   <button type="submit" class="btn btn-info" >Search</button>
   <button type="submit" class="btn btn-info" >Reset</button>
   </form>
+  
+  
  <table border="1" cellpadding="10">
  <thead>
  <tr>
@@ -40,6 +64,8 @@
  </tr>
  </tbody>
  </table>
+ 
+ 
  <a href="/"><button>POCETNA</button></a>
 </div>
 </body>

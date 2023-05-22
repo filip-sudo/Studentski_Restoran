@@ -18,5 +18,11 @@ public interface JelovnikService {
 	
 	List<Jelovnik> getByKeyword(String keyword);
 	
+	List<Jelovnik> getByKeywordMjesecni(String keyword);
+	
+	List<Jelovnik> getByKeywordTjedni(String keyword);
+	
+	List<Jelovnik> getByKeywordDnevni(String keyword);
+	
 
 }

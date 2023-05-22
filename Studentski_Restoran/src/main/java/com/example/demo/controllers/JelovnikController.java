@@ -23,15 +23,30 @@ public class JelovnikController {
 	 private JelovnikService service;
 	
 	@GetMapping("/jelovnik")
-	public String pocetakJelovnik(Model model, String keyword) {
+	public String pocetakJelovnik(Model model, String keyword, String mjesecni, String tjedni, String dnevni) {
 		
 		if(keyword == null) {
 		ArrayList<Jelovnik> popisJelovnik = (ArrayList)service.getAllJelovnik();
 		model.addAttribute("listaJelovnik", popisJelovnik);
 		}else {
+			
+			if(mjesecni == "mjesecni") {
+				ArrayList<Jelovnik> popisJelovnik = (ArrayList)service.getByKeywordMjesecni(keyword);
+				model.addAttribute("listaJelovnik", popisJelovnik);
+			}
+			if(tjedni == "tjedni") {
+				ArrayList<Jelovnik> popisJelovnik = (ArrayList)service.getByKeywordTjedni(keyword);
+				model.addAttribute("listaJelovnik", popisJelovnik);
+			}
+			if(dnevni == "dnevni") {
+				ArrayList<Jelovnik> popisJelovnik = (ArrayList)service.getByKeywordDnevni(keyword);
+				model.addAttribute("listaJelovnik", popisJelovnik);
+			}else {
+			
+			
 			ArrayList<Jelovnik> popisJelovnik = (ArrayList)service.getByKeyword(keyword);
 			model.addAttribute("listaJelovnik", popisJelovnik);
-		}
+		}}
 		
 		return "pocetna_Jelovnik";
 	}
