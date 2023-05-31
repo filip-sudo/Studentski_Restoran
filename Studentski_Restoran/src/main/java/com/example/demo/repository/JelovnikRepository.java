@@ -15,7 +15,7 @@ public interface JelovnikRepository extends JpaRepository<Jelovnik, Long> {
 	
 	//Custom query
 	@Query(value = "select * from jelovnik where naziv like %:keyword% or id_jelovnik like %:keyword% or restoran like %:keyword% "
-	 		+ "or adresa like %:keyword% or meni1 like %:keyword% or meni2 liek %:keyword% or meni3 like %:keyword% ", nativeQuery = true)
+	 		+ "or adresa like %:keyword% or meni1 like %:keyword% or meni2 like %:keyword% or meni3 like %:keyword% ", nativeQuery = true)
 	 List<Jelovnik> findByKeyword(@Param("keyword") String keyword);
 
 	
