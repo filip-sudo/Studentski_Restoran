@@ -13,13 +13,18 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.demo.models.Jelovnik;
+import com.example.demo.models.Meni;
 import com.example.demo.services.JelovnikService;
+import com.example.demo.services.MeniService;
 
 @Controller
 public class JelovnikController {
 	
 	@Autowired
 	 private JelovnikService service;
+	
+	@Autowired
+	private MeniService meniService;
 	
 	@GetMapping("/jelovnik")
 	public String pocetakJelovnik(Model model, String keyword, String mjesecni, String tjedni, String dnevni) {
@@ -56,14 +61,19 @@ public class JelovnikController {
 		Jelovnik Jelovnik = new Jelovnik();
 		model.addAttribute("Jelovnik", Jelovnik);
 		
+		ArrayList<Meni> popisMeni = (ArrayList)meniService.getAllMeni();
+		model.addAttribute("listaMeni", popisMeni);
+		
 		return "novi_Jelovnik";
 	}
 	
 	@RequestMapping(value = "/jelovnik/novi", method = RequestMethod.POST)
 		public String postNoviJelovnik(@ModelAttribute("Jelovnik") Jelovnik Jelovnik) {
 			service.createJelovnik(Jelovnik);
+			
 			return "redirect:/jelovnik";
 	}
+	
 	
 	@RequestMapping("/jelovnik/uredi/{id}")
 	public ModelAndView urediJelovnik(@PathVariable(name = "id") int id) {

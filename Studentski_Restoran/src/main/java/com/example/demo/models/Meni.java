@@ -33,17 +33,10 @@ public class Meni {
 	@Column
 	private double cijena;
 	
-	@ManyToMany
-	@JoinTable(
-			name = "meni_namirnice",
-			joinColumns = @JoinColumn(name = "id_meni"),
-			inverseJoinColumns = @JoinColumn(name = "id_Namirnice")
-			)
-	Set<Namirnice> spojiNamirnice; 
-	
+	/*
 	@ManyToMany(mappedBy = "spojiMeni")
 	Set<Jelovnik> spojJelovnik;
-	
+	*/
 	
 	
 	

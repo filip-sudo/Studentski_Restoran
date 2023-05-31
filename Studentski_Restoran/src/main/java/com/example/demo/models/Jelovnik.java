@@ -25,6 +25,16 @@ public class Jelovnik {
 	@Column
 	private LocalDateTime datum;
 	
+	@Column
+	private String meni1;
+	
+	@Column
+	private String meni2;
+	
+	@Column
+	private String meni3;
+	
+	/*
 	@ManyToMany
 	@JoinTable(
 			name = "jelovnik_meni",
@@ -36,6 +46,14 @@ public class Jelovnik {
 	
 	
 	
+	public Set<Meni> getSpojiMeni() {
+		return spojiMeni;
+	}
+
+	public void setSpojiMeni(Set<Meni> spojiMeni) {
+		this.spojiMeni = spojiMeni;
+	}
+*/
 	public long getId_jelovnik() {
 		return id_jelovnik;
 	}
@@ -75,6 +93,31 @@ public class Jelovnik {
 	public void setDatum(LocalDateTime datum) {
 		this.datum = datum;
 	}
+
+	public String getMeni1() {
+		return meni1;
+	}
+
+	public void setMeni1(String meni1) {
+		this.meni1 = meni1;
+	}
+
+	public String getMeni2() {
+		return meni2;
+	}
+
+	public void setMeni2(String meni2) {
+		this.meni2 = meni2;
+	}
+
+	public String getMeni3() {
+		return meni3;
+	}
+
+	public void setMeni3(String meni3) {
+		this.meni3 = meni3;
+	}
+	
 	
 	
 	

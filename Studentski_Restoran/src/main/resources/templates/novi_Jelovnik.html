@@ -27,6 +27,39 @@
 <td>Datum:</td>
 <td><input type="datetime-local" th:field="*{datum}"/></td>
 </tr>
+<tr>
+<td>Meni 1:</td>
+<td>
+    <select class="form-control" id="id_meni" name="meniOrder" th:field="*{meni1}">
+        <option value="">Odaberi Meni</option>
+        <option th:each="meni : ${listaMeni}"
+                th:value="${meni.naziv}"
+                th:text="${meni.naziv}"></option>
+    </select>
+</td>
+</tr>
+<tr>
+<td>Meni 2:</td>
+<td>
+    <select class="form-control" id="id_meni" name="meniOrder" th:field="*{meni2}">
+        <option value="">Odaberi Meni</option>
+        <option th:each="meni : ${listaMeni}"
+                th:value="${meni.naziv}"
+                th:text="${meni.naziv}"></option>
+    </select>
+</td>
+</tr>
+<tr>
+<td>Meni 3:</td>
+<td>
+    <select class="form-control" id="id_meni" name="meniOrder" th:field="*{meni3}">
+        <option value="">Odaberi Meni</option>
+        <option th:each="meni : ${listaMeni}"
+                th:value="${meni.naziv}"
+                th:text="${meni.naziv}"></option>
+    </select>
+</td>
+</tr>
 
 <tr>
 <td colspan="2"><button type="submit">Snimi</button>

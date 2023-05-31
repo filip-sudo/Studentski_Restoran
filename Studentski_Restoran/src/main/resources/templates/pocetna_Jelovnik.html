@@ -47,6 +47,9 @@
  <th>Restoran</th>
  <th>Adresa</th>
  <th>Datum</th>
+ <th>Meni 1</th>
+ <th>Meni 2</th>
+ <th>Meni 3</th>
  </tr>
  </thead>
  <tbody>
@@ -56,6 +59,9 @@
  <td th:text="${jelovnik.restoran}">Restoran</td>
  <td th:text="${jelovnik.adresa}">Adresa</td>
  <td th:text="${jelovnik.datum}">Datum</td>
+ <td th:text="${jelovnik.meni1}">Meni 1</td>
+ <td th:text="${jelovnik.meni2}">Meni 2</td>
+ <td th:text="${jelovnik.meni3}">Meni 3</td>
  <td>
  <a th:href="@{'/jelovnik/uredi/' + ${jelovnik.id_jelovnik}}">Uredi</a>
  &nbsp;&nbsp;

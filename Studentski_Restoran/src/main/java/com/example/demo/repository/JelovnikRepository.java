@@ -1,5 +1,6 @@
 package com.example.demo.repository;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -10,9 +11,11 @@ import com.example.demo.models.Jelovnik;
 
 public interface JelovnikRepository extends JpaRepository<Jelovnik, Long> {
 	
+	List<Jelovnik> findByDatumLessThan(LocalDateTime datum);
+	
 	//Custom query
 	@Query(value = "select * from jelovnik where naziv like %:keyword% or id_jelovnik like %:keyword% or restoran like %:keyword% "
-	 		+ "or adresa like %:keyword%", nativeQuery = true)
+	 		+ "or adresa like %:keyword% or meni1 like %:keyword% or meni2 liek %:keyword% or meni3 like %:keyword% ", nativeQuery = true)
 	 List<Jelovnik> findByKeyword(@Param("keyword") String keyword);
 
 	

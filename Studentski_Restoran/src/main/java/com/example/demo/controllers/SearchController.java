@@ -9,19 +9,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import com.example.demo.models.Jelovnik;
 import com.example.demo.models.Meni;
-import com.example.demo.models.Namirnice;
 import com.example.demo.services.JelovnikService;
 import com.example.demo.services.MeniService;
-import com.example.demo.services.NamirniceService;
-
 @Controller
 public class SearchController {
 	
 	@Autowired
 	MeniService meniService;
-	
-	@Autowired
-	NamirniceService namirniceService;
 	
 	@Autowired
 	JelovnikService jelovnikService;
@@ -34,10 +28,7 @@ public class SearchController {
 		
 		ArrayList<Jelovnik> popisJelovnik = (ArrayList)jelovnikService.getByKeyword(keyword);
 		model.addAttribute("listaJelovnik", popisJelovnik);
-		
-		ArrayList<Namirnice> popisNamirnica = (ArrayList)namirniceService.getByKeyword(keyword);
-		model.addAttribute("listaNamirnica", popisNamirnica);
-		
+
 		return "pocetna_Search";
 	}
 

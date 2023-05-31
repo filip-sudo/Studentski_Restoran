@@ -2,6 +2,7 @@ package com.example.demo.services.Impl;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -9,7 +10,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.example.demo.exceptions.ResourceNotFoundException;
 import com.example.demo.models.Jelovnik;
+import com.example.demo.models.Meni;
 import com.example.demo.repository.JelovnikRepository;
+import com.example.demo.repository.MeniRepository;
 import com.example.demo.services.JelovnikService;
 
 @Service
@@ -18,6 +21,9 @@ public class JelovnikServiceImpl implements JelovnikService{
 	
 	@Autowired
 	private JelovnikRepository JelovnikRepository;
+	
+	@Autowired
+	private MeniRepository MeniRepository;
 	
 	@Override
 	public Jelovnik createJelovnik(Jelovnik Jelovnik) {
@@ -34,6 +40,9 @@ public class JelovnikServiceImpl implements JelovnikService{
 			JelovnikUpdate.setRestoran(dataJelovnik.getRestoran());
 			JelovnikUpdate.setAdresa(dataJelovnik.getAdresa());
 			JelovnikUpdate.setDatum(dataJelovnik.getDatum());
+			JelovnikUpdate.setMeni1(dataJelovnik.getMeni1());
+			JelovnikUpdate.setMeni2(dataJelovnik.getMeni2());
+			JelovnikUpdate.setMeni3(dataJelovnik.getMeni3());
 			JelovnikRepository.save(JelovnikUpdate);
 			return JelovnikUpdate;
 			} else {
@@ -89,5 +98,4 @@ public class JelovnikServiceImpl implements JelovnikService{
 	public List<Jelovnik> getByKeywordDnevni(String keyword){
 		return JelovnikRepository.findByKeywordDnevni(keyword);
 	}
-
 }
