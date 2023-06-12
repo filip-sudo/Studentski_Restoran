@@ -4,18 +4,19 @@
 <head>
 <meta charset="utf-8"/>
 <title>Meni</title>
+<link rel="stylesheet" type="text/css" href="style.css" />
 </head>
 <body>
 <div align="center">
- <h1>POPIS MENIJA</h1>
- <a href="/meni/novi">Kreiraj novi meni</a>
+ <h1 class="naslov">POPIS MENIJA</h1>
+ <a href="/meni/novi"><button id="button-20">Novi Meni</button></a>
  <br/><br/>
  <form th:action="@{/meni}" method="get">
   <input type="text" name="keyword" th:value="${keyword}"  placeholder="Find by anything" size="50" >
-  <button type="submit" class="btn btn-info" >Search</button>
-  <button type="submit" class="btn btn-info" >Reset</button>
+  <button type="submit" class="btn btn-info" id="button-20" >Search</button>
+  <button type="submit" class="btn btn-info" id="button-20" >Reset</button>
   </form>
- <table border="1" cellpadding="10">
+ <table cellpadding="10" id="tablica">
  <thead>
  <tr>
  <th>ID</th>
@@ -46,7 +47,7 @@
  </tr>
  </tbody>
  </table>
- <a href="/"><button>POCETNA</button></a>
+ <a href="/"><button id="button-20">POCETNA</button></a>
 </div>
 </body>
 </html>
