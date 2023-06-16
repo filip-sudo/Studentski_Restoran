@@ -1,0 +1,31 @@
+MySQL
+username:root
+password:
+
+Spring Security
+username:admin
+password:pass
+
+
+GLAVNI IZBORNIK
+Prijavom u aplikaciju dolazimo na glavni izbornik. On sluzi navigaciji kroz djelove aplikacije
+pritiskom na odredene gumbove.
+
+JELOVNIK
+Pritiskom gumba "JELOVNIK" otvara se pregled svih kreiranih jelovnika u obliku tablice.
+Iznad tablice postoji pretrazivac koji olaksava pronalazak jelovnika. Moguce je pretrazivati po bilokojem 
+pojmu(npr. naziv jelovnika, restoran, adresa, meni unutar jelovnika...). Na kraju svakog reda tablice
+su opcije "Uredi" i "Brisi" koje rade upravo to za svaki zapis jelovnika. Na samom vrhu nalazi se gumb
+"Novi Jelovnik" koji nudi mogucnost dodavanja novog zapisa jelovnika.
+
+MENI
+Dio za meni radi  identicno kao dio za jelovnik.
+
+PRETRAZI
+Ovaj dio aplikacije omogucava pretragu menija i jelovnika prema zadanom pojmu(npr. unosom naziva menija prikazuje se trazeni meni i svi jelovnici
+koji sadrze trazeni meni). Osim pretrage ispod pretrazivaca postoji gumb "Napravi PDF" koji radi pdf datoteku za preuzimanje na osnovi
+pretrazenih pojmova. Npr. pretragom pojma "meni1" u prvu tablicu meni se prikazuje meni1, a u tablici jelovnici se prikazuju svi jelovnioci koji
+sadrze meni. Ako nakon pretrage pritisnemo "Napravi PDF" generira se datoteka s identicne dvije filtrirane tablice.
+
+ODJAVA
+Odjavljujemo se iz aplikacije.
