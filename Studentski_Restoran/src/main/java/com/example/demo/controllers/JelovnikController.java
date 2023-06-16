@@ -76,10 +76,14 @@ public class JelovnikController {
 	
 	
 	@RequestMapping("/jelovnik/uredi/{id}")
-	public ModelAndView urediJelovnik(@PathVariable(name = "id") int id) {
+	public ModelAndView urediJelovnik(@PathVariable(name = "id") int id, Model model) {
 		ModelAndView mav = new ModelAndView("uredi_Jelovnik");
 		Jelovnik jelovnik = service.getJelovnik(id);
 		mav.addObject("jelovnik", jelovnik);
+		
+		ArrayList<Meni> popisMeni = (ArrayList)meniService.getAllMeni();
+		model.addAttribute("listaMeni", popisMeni);
+		
 		return mav;
 	}
 
