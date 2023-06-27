@@ -13,19 +13,26 @@
 <table border="0" cellpadding="10">
 <tr>
 <td>Naziv:</td>
-<td><input type="text" th:field="*{naziv}"/></td>
+<td><input id="naziv" type="text" th:field="*{naziv}"/>
+<p th:if="${#fields.hasErrors('naziv')}" class="text-danger" th:errors="*{naziv}"></p>
+</td>
 </tr>
 <tr>
 <td>Restoran:</td>
-<td><input type="text" th:field="*{restoran}"/></td>
+<td><input id="restoran" type="text" th:field="*{restoran}"/>
+<p th:if="${#fields.hasErrors('restoran')}" class="text-danger" th:errors="*{restoran}"></p>
+</td>
 </tr>
 <tr>
 <td>Adresa:</td>
-<td><input type="text" th:field="*{adresa}"/></td>
+<td><input id="adresa" type="text" th:field="*{adresa}"/>
+<p th:if="${#fields.hasErrors('adresa')}" class="text-danger" th:errors="*{adresa}"></p>
+</td>
 </tr>
 <tr>
 <td>Datum:</td>
-<td><input type="datetime-local" th:field="*{datum}"/></td>
+<td><input id="datum" type="date" th:field="*{datum}"/>
+</td>
 </tr>
 <tr>
 <td>Meni 1:</td>
@@ -36,6 +43,7 @@
                 th:value="${meni.naziv}"
                 th:text="${meni.naziv}"></option>
     </select>
+    <p th:if="${#fields.hasErrors('meni1')}" class="text-danger" th:errors="*{meni1}"></p>
 </td>
 </tr>
 <tr>
@@ -47,6 +55,7 @@
                 th:value="${meni.naziv}"
                 th:text="${meni.naziv}"></option>
     </select>
+    <p th:if="${#fields.hasErrors('meni2')}" class="text-danger" th:errors="*{meni2}"></p>
 </td>
 </tr>
 <tr>
@@ -58,6 +67,7 @@
                 th:value="${meni.naziv}"
                 th:text="${meni.naziv}"></option>
     </select>
+    <p th:if="${#fields.hasErrors('meni3')}" class="text-danger" th:errors="*{meni3}"></p>
 </td>
 </tr>
 

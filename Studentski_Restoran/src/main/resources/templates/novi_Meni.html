@@ -13,19 +13,27 @@
 <table border="0" cellpadding="10">
 <tr>
 <td>Naziv menija:</td>
-<td><input type="text" th:field="*{naziv}"/></td>
+<td><input id="naziv" type="text" th:field="*{naziv}"/>
+<p th:if="${#fields.hasErrors('naziv')}" class="text-danger" th:errors="*{naziv}"></p>
+</td>
 </tr>
 <tr>
 <td>Juha:</td>
-<td><input type="text" th:field="*{juha}"/></td>
+<td><input id="juha" type="text" th:field="*{juha}"/>
+<p th:if="${#fields.hasErrors('juha')}" class="text-danger" th:errors="*{juha}"></p>
+</td>
 </tr>
 <tr>
 <td>Glavno jelo:</td>
-<td><input type="text" th:field="*{glavno_jelo}"/></td>
+<td><input id="glavno_jelo" type="text" th:field="*{glavno_jelo}"/>
+<p th:if="${#fields.hasErrors('glavno_jelo')}" class="text-danger" th:errors="*{glavno_jelo}"></p>
+</td>
 </tr>
 <tr>
 <td>Desert:</td>
-<td><input type="text" th:field="*{desert}"/></td>
+<td><input id="desert" type="text" th:field="*{desert}"/>
+<p th:if="${#fields.hasErrors('desert')}" class="text-danger" th:errors="*{desert}"></p>
+</td>
 </tr>
 <tr>
 <td>Vege:</td>
@@ -33,11 +41,15 @@
 </tr>
 <tr>
 <td>Kalorije:</td>
-<td><input type="text" th:field="*{kalorije}"/></td>
+<td><input id="kalorije" type="text" th:field="*{kalorije}"/>
+<p th:if="${#fields.hasErrors('kalorije')}" class="text-danger" th:errors="*{kalorije}"></p>
+</td>
 </tr>
 <tr>
 <td>Cijena:</td>
-<td><input type="text" th:field="*{cijena}"/></td>
+<td><input id="cijena" type="text" th:field="*{cijena}"/>
+<p th:if="${#fields.hasErrors('cijena')}" class="text-danger" th:errors="*{cijena}"></p>
+</td>
 </tr>
 <tr>
 <td colspan="2"><button id="button-20" type="submit">Snimi</button>

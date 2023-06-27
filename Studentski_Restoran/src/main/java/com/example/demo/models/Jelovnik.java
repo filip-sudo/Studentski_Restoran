@@ -1,9 +1,13 @@
 package com.example.demo.models;
 
+import java.sql.Date;
 import java.time.LocalDateTime;
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotEmpty;
 
 @Entity
 @Table(name = "Jelovnik")
@@ -14,24 +18,31 @@ public class Jelovnik {
 	private long id_jelovnik;
 	
 	@Column
+	@NotEmpty(message = "Naziv ne smije biti prazno!")
 	private String naziv;
 
 	@Column
+	@NotEmpty(message = "Restoran ne smije biti prazno!")
 	private String restoran;
 	
 	@Column
+	@NotEmpty(message = "Adresa ne smije biti prazno!")
 	private String adresa;
 	
 	@Column
-	private LocalDateTime datum;
+	@JsonFormat(pattern="dd.mm.yyyy")
+	private Date datum;
 	
 	@Column
+	@NotEmpty(message = "Meni1 nije odabran!")
 	private String meni1;
 	
 	@Column
+	@NotEmpty(message = "Meni2 nije odabran!")
 	private String meni2;
 	
 	@Column
+	@NotEmpty(message = "Meni3 nije odabran!")
 	private String meni3;
 	
 	/*
@@ -86,11 +97,11 @@ public class Jelovnik {
 		this.adresa = adresa;
 	}
 
-	public LocalDateTime getDatum() {
+	public Date getDatum() {
 		return datum;
 	}
 
-	public void setDatum(LocalDateTime datum) {
+	public void setDatum(Date datum) {
 		this.datum = datum;
 	}
 
