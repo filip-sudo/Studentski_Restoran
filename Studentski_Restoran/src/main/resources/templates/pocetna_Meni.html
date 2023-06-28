@@ -16,6 +16,7 @@
   <button type="submit" class="btn btn-info" id="button-20" >Search</button>
   <button type="submit" class="btn btn-info" id="button-20" >Reset</button>
   </form>
+  <div class="alert alert-primary" role="alert" th:text="${success}" th:if="${success}"></div>
  <table cellpadding="10" id="tablica">
  <thead>
  <tr>
@@ -41,8 +42,9 @@
  <td th:text="${meni.cijena}">Cijena</td>
  <td>
  <a th:href="@{'/meni/uredi/' + ${meni.id_meni}}">Uredi</a>
- &nbsp;&nbsp;
- <a th:href="@{'/meni/brisi/' + ${meni.id_meni}}">Brisi</a>
+ </td>
+ <td>
+  <a th:href="@{'/meni/brisi/' + ${meni.id_meni}}">Brisi</a>
  </td>
  </tr>
  </tbody>

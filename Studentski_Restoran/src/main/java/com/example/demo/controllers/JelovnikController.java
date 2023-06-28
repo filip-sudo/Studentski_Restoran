@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.example.demo.models.Jelovnik;
 import com.example.demo.models.Meni;
@@ -107,8 +108,9 @@ public class JelovnikController {
 	}
 	
 	@RequestMapping("/jelovnik/brisi/{id}")
-	public String brisanjeJelovnik(@PathVariable(name = "id") int id) {
+	public String brisanjeJelovnik(@PathVariable(name = "id") int id, RedirectAttributes redirAttrs) {
 	service.deleteJelovnik(id);
+	redirAttrs.addFlashAttribute("success", "Jelovnik je obrisan");
 	return "redirect:/jelovnik";
 	}
 	

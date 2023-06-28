@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.example.demo.models.Meni;
 import com.example.demo.services.MeniService;
@@ -74,8 +75,9 @@ public class MeniController {
 	}
 	
 	@RequestMapping("/meni/brisi/{id}")
-	public String brisanjeMeni(@PathVariable(name = "id") int id) {
+	public String brisanjeMeni(@PathVariable(name = "id") int id, RedirectAttributes redirAttrs) {
 	service.deleteMeni(id);
+	redirAttrs.addFlashAttribute("success", "Meni je obrisan");
 	return "redirect:/meni";
 	}
 

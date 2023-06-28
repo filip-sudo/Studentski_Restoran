@@ -45,9 +45,6 @@ public class MeniServiceImpl implements MeniService{
 			MeniUpdate.setGlavno_jelo(dataMeni.getGlavno_jelo());
 			MeniUpdate.setDesert(dataMeni.getDesert());
 			MeniUpdate.setVege(dataMeni.getVege());
-			/*
-			MeniUpdate.setNamirnice(dataMeni.getNamirnice());
-			*/
 			MeniUpdate.setKalorije(dataMeni.getKalorije());
 			MeniUpdate.setCijena(dataMeni.getCijena());
 			MeniRepository.save(MeniUpdate);
