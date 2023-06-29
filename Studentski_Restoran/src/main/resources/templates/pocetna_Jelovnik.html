@@ -24,7 +24,6 @@
  <table cellpadding="10" id="tablica">
  <thead>
  <tr>
- <th>ID</th>
  <th>Naziv</th>
  <th>Restoran</th>
  <th>Adresa</th>
@@ -36,18 +35,18 @@
  </thead>
  <tbody>
  <tr th:each="jelovnik : ${listaJelovnik}">
- <td th:text="${jelovnik.id_jelovnik}">ID</td>
  <td th:text="${jelovnik.naziv}">ID</td>
  <td th:text="${jelovnik.restoran}">Restoran</td>
  <td th:text="${jelovnik.adresa}">Adresa</td>
- <td th:text="${jelovnik.datum}">Datum</td>
+ <td th:text="${#dates.format(jelovnik.datum, 'dd.MM.yyyy')}">Datum</td>
  <td th:text="${jelovnik.meni1}">Meni 1</td>
  <td th:text="${jelovnik.meni2}">Meni 2</td>
  <td th:text="${jelovnik.meni3}">Meni 3</td>
  <td>
  <a th:href="@{'/jelovnik/uredi/' + ${jelovnik.id_jelovnik}}">Uredi</a>
- &nbsp;&nbsp;
- <a th:href="@{'/jelovnik/brisi/' + ${jelovnik.id_jelovnik}}">Briši</a>
+ </td>
+ <td>
+ <a th:href="@{'/jelovnik/brisi/' + ${jelovnik.id_jelovnik}}" onclick="return confirm('Zelite li izbrisati jelovnik?')">Briši</a>
  </td>
  </tr>
  </tbody>

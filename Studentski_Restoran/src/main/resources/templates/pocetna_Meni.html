@@ -5,6 +5,8 @@
 <meta charset="utf-8"/>
 <title>Meni</title>
 <link rel="stylesheet" type="text/css" href="style.css" />
+<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+  
 </head>
 <body>
 <div align="center">
@@ -20,7 +22,6 @@
  <table cellpadding="10" id="tablica">
  <thead>
  <tr>
- <th>ID</th>
  <th>Naziv</th>
  <th>Juha</th>
  <th>Glavno jelo</th>
@@ -32,19 +33,18 @@
  </thead>
  <tbody>
  <tr th:each="meni : ${listaMeni}">
- <td th:text="${meni.id_meni}">ID</td>
  <td th:text="${meni.naziv}">Naziv</td>
  <td th:text="${meni.juha}">Juha</td>
  <td th:text="${meni.glavno_jelo}">Glavno jelo</td>
  <td th:text="${meni.desert}">Desert</td>
  <td th:text="${meni.vege}">Vege</td>
- <td th:text="${meni.kalorije}">Kalorije</td>
- <td th:text="${meni.cijena}">Cijena</td>
+ <td><span th:text="${#numbers.formatDecimal(meni.kalorije, 0, 'COMMA', 2, 'COMMA')}"></span> cal</td>
+ <td><span th:text="${#numbers.formatDecimal(meni.cijena, 0, 'COMMA', 2, 'COMMA')}"></span>€</td>
  <td>
  <a th:href="@{'/meni/uredi/' + ${meni.id_meni}}">Uredi</a>
  </td>
  <td>
-  <a th:href="@{'/meni/brisi/' + ${meni.id_meni}}">Brisi</a>
+  <a th:href="@{'/meni/brisi/' + ${meni.id_meni}}" onclick="return confirm('Zelite li izbrisati meni?')">Brisi</a>
  </td>
  </tr>
  </tbody>

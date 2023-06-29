@@ -41,7 +41,7 @@
         <option value="">Odaberi Meni</option>
         <option th:each="meni : ${listaMeni}"
                 th:value="${meni.naziv}"
-                th:text="${meni.naziv}"></option>
+                th:text="${meni.naziv} + ' ' + '(' + ${meni.juha} + ',' + ${meni.glavno_jelo} + ',' + ${meni.desert} + ')'"></option>
     </select>
     <p th:if="${#fields.hasErrors('meni1')}" class="text-danger" th:errors="*{meni1}"></p>
 </td>
@@ -53,7 +53,7 @@
         <option value="">Odaberi Meni</option>
         <option th:each="meni : ${listaMeni}"
                 th:value="${meni.naziv}"
-                th:text="${meni.naziv}"></option>
+                th:text="${meni.naziv} + ' ' + '(' + ${meni.juha} + ',' + ${meni.glavno_jelo} + ',' + ${meni.desert} + ')'"></option>
     </select>
     <p th:if="${#fields.hasErrors('meni2')}" class="text-danger" th:errors="*{meni2}"></p>
 </td>
@@ -65,7 +65,7 @@
         <option value="">Odaberi Meni</option>
         <option th:each="meni : ${listaMeni}"
                 th:value="${meni.naziv}"
-                th:text="${meni.naziv}"></option>
+                th:text="${meni.naziv} + ' ' + '(' + ${meni.juha} + ',' + ${meni.glavno_jelo} + ',' + ${meni.desert} + ')'"></option>
     </select>
     <p th:if="${#fields.hasErrors('meni3')}" class="text-danger" th:errors="*{meni3}"></p>
 </td>
